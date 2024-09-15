@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search Webpage Design</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <section>
+        <header>
+            <ul>
+                <li><a href="#">Gmail</a></li>
+                <li><a href="#">Images</a></li>
+                <li><a href="#"><img src="./images/bars.png"></a></li>
+                <li><button>Sign In</button></li>
+            </ul>
+        </header>
+        <div class="main">
+            <img src="./images/google.png" alt="">
+            <div class="search">
+                <input type="text" placeholder="Search Google or type a URL" class="click" id="custom-search-button">
+                <div class="icons">
+                    <img src="./images/search.png" alt="">
+                    <img src="./images/mic.png" alt="">
+                </div>
+            </div>
+            <div class="buttons">
+                <button>Google Search</button>
+                <button>I'm Feeling Lucky</button>
+            </div>
+            <ul class="languages">
+                <li>Google offered in:</li>
+                <li><a href="#">Hausa</a></li>
+                <li><a href="#">Igbo</a></li>
+                <li><a href="#">Èdè Yorùbá</a></li>
+                <li><a href="#">Nigerian Pidgin</a></li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="row row1">
+                <p class="country">Nigeria</p>
+            </div>
+            <div class="row row2">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">How Search Works</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script async src="https://cse.google.com/cse.js?cx=6688df947911748b8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGGc3OvlcUmMB4PwYNRmvXBqckNpy8rg4&libraries=places"></script>
+    <script>
+        function initAutocomplete() {
+            var input = document.getElementById('search-box');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initAutocomplete();
+        });
+
+        document.getElementById('custom-search-button').addEventListener('click', function() {
+            var query = document.getElementById('search-box').value;
+            var cx = '6688df947911748b8';
+            var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCGGc3OvlcUmMB4PwYNRmvXBqckNpy8rg4&cx=' + cx + '&q=' + encodeURIComponent(query);
+            window.location.href = url;
+        });
+    </script>
+</body>
+</html>
